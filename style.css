@@ -1,0 +1,265 @@
+/* Modern Design with Gradient Background */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    color: #333;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+h1 {
+    color: #1e3c72;
+    margin-bottom: 0.5rem;
+}
+
+h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Cards for questions */
+.question-card, .analysis-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #2a5298;
+}
+
+/* Smooth hover effects */
+.question-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.question-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1e3c72;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fafafa;
+}
+
+.option-label:hover {
+    background: #f0f7ff;
+    border-color: #2a5298;
+}
+
+.option-label input[type="radio"] {
+    margin-right: 12px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.primary-btn {
+    background: #2a5298;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background: #1e3c72;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: #e0e0e0;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+.secondary-btn:hover {
+    background: #ccc;
+    transform: translateY(-2px);
+}
+
+/* Result Page */
+.score-display {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #2a5298;
+    margin: 2rem 0;
+}
+
+.name-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.name-input:focus {
+    border-color: #2a5298;
+}
+
+/* Leaderboard Page */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+th {
+    background: #1e3c72;
+    color: white;
+    font-weight: 600;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr.user-row {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+tr.user-row:hover {
+    background: #f4f9ff;
+}
+
+/* Analysis Section */
+.analysis-wrapper {
+    display: none;
+    margin-top: 2.5rem;
+    border-top: 2px dashed #ccc;
+    padding-top: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.analysis-wrapper.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: #f0f0f0;
+    color: #555;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+}
+
+/* Highlight active tab */
+.tab-btn.active {
+    background: #2a5298;
+    color: white;
+    box-shadow: 0 4px 10px rgba(42, 82, 152, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    background: #e0e0e0;
+}
+
+/* Option States for Analysis */
+.opt-correct {
+    background-color: #d4edda !important;
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+    font-weight: 600;
+}
+
+.opt-wrong {
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb !important;
+    color: #721c24 !important;
+    font-weight: 600;
+}
+
+.opt-gray {
+    background-color: #e2e3e5 !important;
+    border-color: #d6d8db !important;
+    color: #383d41 !important;
+}
+
+.icon-mark {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
