@@ -1,25 +1,58 @@
-let correct = Number(localStorage.getItem("correct"));
-let incorrect = Number(localStorage.getItem("incorrect"));
+// Security implementations
+document.addEventListener('contextmenu', event => event.preventDefault());
 
-document.getElementById("score").innerText =
-"Correct: " + correct + " | Incorrect: " + incorrect;
-
-function saveScore(){
-
-let name = prompt("Enter your name");
-
-if(!name) return;
-
-let leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
-
-leaderboard.push({
-name:name,
-correct:correct,
-incorrect:incorrect
+document.addEventListener('keydown', event => {
+    if (
+        event.key === 'F12' ||
+        (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J' || event.key === 'C')) ||
+        (event.ctrlKey && event.key === 'U')
+    ) {
+        event.preventDefault();
+    }
 });
 
-localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
+// Load session data
+const sessionDataText = localStorage.getItem('ecet_current_session');
 
-window.location.href="leaderboard.html";
-
+if (!sessionDataText) {
+    // If no recent quiz session, redirect to index
+    window.location.href = 'index.html';
 }
+
+const sessionData = JSON.parse(sessionDataText);
+
+// 3. Result Page - Display total score
+document.getElementById('score-text').textContent = `${sessionData.score} / ${sessionData.total}`;
+
+// 3. Ask user to enter their name and save to leaderboard
+document.getElementById('save-btn').addEventListener('click', () => {
+    const nameInput = document.getElementById('user-name').value.trim();
+
+    if (!nameInput) {
+        alert('Please enter your name to proceed!');
+        return;
+    }
+
+    const newLeaderboardEntry = {
+        id: Date.now(),
+        name: nameInput,
+        score: sessionData.score,
+        total: sessionData.total,
+        userAnswers: sessionData.userAnswers,
+        shuffledQuestions: sessionData.shuffledQuestions,
+        date: new Date().toISOString()
+    };
+
+    // Load existing leaderboard or create new array
+    let leaderboard = JSON.parse(localStorage.getItem('ecet_leaderboard') || '[]');
+    leaderboard.push(newLeaderboardEntry);
+
+    // Save updated leaderboard back to local storage
+    localStorage.setItem('ecet_leaderboard', JSON.stringify(leaderboard));
+
+    // Clean up current session
+    localStorage.removeItem('ecet_current_session');
+
+    // Redirect to leaderboard page
+    window.location.href = 'leaderboard.html';
+});
