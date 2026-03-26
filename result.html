@@ -1,55 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Quiz Result</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#667eea;
-color:white;
-text-align:center;
-padding-top:120px;
-}
-
-.result-box{
-background:white;
-color:black;
-padding:40px;
-width:400px;
-margin:auto;
-border-radius:10px;
-}
-
-button{
-padding:12px 25px;
-background:#667eea;
-color:white;
-border:none;
-border-radius:6px;
-cursor:pointer;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="result-box">
+    <div class="container">
+        <header>
+            <h1>Quiz Completed!</h1>
+            <p>Check your score and save it to the leaderboard.</p>
+        </header>
 
-<h1>Your Result</h1>
+        <main>
+            <div class="score-display">
+                Score: <span id="score-text">0/0</span>
+            </div>
 
-<h2 id="score"></h2>
+            <div class="result-form">
+                <label for="user-name" style="display:block; margin-bottom: 0.5rem; font-weight: 600; color: #1e3c72;">Enter Your Name:</label>
+                <input type="text" id="user-name" class="name-input" placeholder="e.g. John Doe" autocomplete="off">
+                <button id="save-btn" class="btn primary-btn">Save to Leaderboard</button>
+            </div>
+        </main>
+    </div>
 
-<input type="text" id="name" placeholder="Enter your name">
-
-<br><br>
-
-<button onclick="saveScore()">Save Score</button>
-
-</div>
-<script src="result.js"></script>
-
+    <script src="result.js"></script>
 </body>
 </html>
