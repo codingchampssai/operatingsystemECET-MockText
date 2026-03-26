@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Leaderboard</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f4f4f4;
-text-align:center;
-}
-
-table{
-margin:auto;
-border-collapse:collapse;
-width:400px;
-background:white;
-}
-
-th,td{
-padding:12px;
-border:1px solid #ddd;
-}
-
-th{
-background:#667eea;
-color:white;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECET Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1>Leaderboard</h1>
+            <p>Click on any user's row to view their detailed performance analysis.</p>
+        </header>
 
-<h1>Score Board</h1>
+        <main>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Rows dynamically injected here -->
+                </tbody>
+            </table>
 
-<table>
+            <!-- Analysis Section -->
+            <div id="analysis-section" class="analysis-wrapper">
+                <h2 id="analysis-title">Performance Analysis</h2>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="correct">Correct Answers</button>
+                    <button class="tab-btn" data-tab="wrong">Wrong Answers</button>
+                    <button class="tab-btn" data-tab="not-answered">Not Answered</button>
+                </div>
 
-<tr>
-<th>Name</th>
-<th>Correct</th>
-<th>Incorrect</th>
-</tr>
+                <div id="analysis-content">
+                    <!-- Cards injected here based on tab selection -->
+                </div>
+            </div>
+            
+            <a href="index.html" class="btn secondary-btn" style="margin-top: 2rem;">Take Another Test</a>
+        </main>
+    </div>
 
-<tbody id="board"></tbody>
-
-</table>
-<script src="leaderboard.js"></script>
-
+    <script src="leaderboard.js"></script>
 </body>
 </html>
