@@ -1,96 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ECET Web Technology Quiz</title>
-
-<style>
-
-body{
-font-family:Segoe UI;
-background:linear-gradient(135deg,#667eea,#764ba2);
-padding:20px;
-margin:0;
-}
-
-h1{
-text-align:center;
-color:white;
-margin-bottom:30px;
-}
-
-.quiz-box{
-max-width:900px;
-margin:auto;
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-.question{
-font-size:18px;
-font-weight:600;
-margin-top:20px;
-color:#333;
-}
-
-.options{
-margin-top:8px;
-padding:10px;
-border-radius:8px;
-background:#f5f6fa;
-transition:0.2s;
-}
-
-.options:hover{
-background:#e4e7ff;
-}
-
-.options input{
-margin-right:8px;
-}
-
-button{
-display:block;
-margin:30px auto;
-padding:14px 30px;
-font-size:18px;
-border:none;
-border-radius:8px;
-background:#667eea;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-background:#4a5de0;
-}
-
-#result{
-text-align:center;
-font-size:22px;
-font-weight:bold;
-margin-top:20px;
-color:#333;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECET Mock Test</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <h1>ECET Mock Test 2026</h1>
+            <p>OPERATING SYSTEM</p>
+        </header>
 
-<h1>ECET operating systems Practice Test</h1>
+        <main id="quiz-container">
+            <!-- Dynamic Questions injected here -->
+        </main>
 
-<div id="timer"></div>
+        <div class="actions">
+            <button id="submit-btn" class="btn primary-btn">Submit Quiz</button>
+        </div>
+    </div>
 
-<div class="quiz-box" id="quiz"></div>
-<button onclick="submitQuiz()">Submit Quiz</button>
-
-<div id="result"></div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
